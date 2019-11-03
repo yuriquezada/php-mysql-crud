@@ -3,5 +3,5 @@
 <?php include('includes/header.php'); ?>
 
 <h1>Lista de estudiantes</h1>
-
+<?php include('includes/form.php'); ?>
 <?php include('includes/footer.php'); ?>
