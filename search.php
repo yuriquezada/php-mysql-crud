@@ -1,22 +1,5 @@
 <?php
 
-
-
-
-
-// if(isset($_GET['id'])) {
-//   $id = $_GET['id'];
-//   $query = "DELETE FROM student WHERE id = $id";
-//   $result = mysqli_query($conn, $query);
-//   if(!$result) {
-//     die("Query Failed no se pede borrar.");
-//   }
-
-//   $_SESSION['message'] = 'Student Removed Successfully';
-//   $_SESSION['message_type'] = 'danger';
-//   header('Location: index.php');
-// }
-
   if(isset($_POST['search'])){
     include("db.php");
 
@@ -33,7 +16,7 @@
         $miresultado=        "
         <table width=\"100%\" border=\"1\">
           <tr>
-            <td><b><center>IDo</center></b></td>
+            <td><b><center>ID</center></b></td>
             <td><b><center>First name</center></b></td>
             <td><b><center>Last name</center></b></td>
             <td><b><center>DNI</center></b></td>
@@ -60,5 +43,4 @@
     }
     
   }
-
 ?>

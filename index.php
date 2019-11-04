@@ -4,7 +4,16 @@
 
 <main class="container p-4">
 
+<form class="form w-50" action="search.php" method="POST">
+  <input class="form-control mr-sm-2" name="id_search" type="search" placeholder="Search ID" aria-label="Search">
+  <input type="submit" name="search" class="btn btn-success btn-block" value="Search">
+</form>
 
+<?php if (isset($_SESSION['elresultado'])) { ?>
+      <div class="mostrandooooooo">
+        <?= $_SESSION['elresultado']?>
+      </div>
+<?php session_unset(); }  ?>
   <div class="row">
     <div class="col-md-4">
       <!-- MESSAGES -->
@@ -87,15 +96,5 @@
     </div>
   </div>
 </main>
-<form class="form w-50" action="search.php" method="POST">
-  <input class="form-control mr-sm-2" name="id_search" type="search" placeholder="Search ID" aria-label="Search">
-  <input type="submit" name="search" class="btn btn-success btn-block" value="Search">
-</form>
-
-<?php if (isset($_SESSION['elresultado'])) { ?>
-      <div class="mostrandooooooo">
-        <?= $_SESSION['elresultado']?>
-      </div>
-<?php session_unset(); }  ?>
 
 <?php include('includes/footer.php'); ?>
