@@ -6,7 +6,7 @@
     $id_search=$_POST['id_search'];
     echo $id_search;
     if(!is_numeric($id_search))
-      {echo "Digita un documento por favor. (Ej: 123)";}
+      {echo "Please enter a number.";}
     else{
       $query = "SELECT * FROM student WHERE id=$id_search";
       $result = mysqli_query($conn, $query);
