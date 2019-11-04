@@ -3,9 +3,9 @@
 include('db.php');
 
 if (isset($_POST['save_task'])) {
-  $title = $_POST['title'];
+  $first_name = $_POST['first_name'];
   $description = $_POST['description'];
-  $query = "INSERT INTO task(title, description) VALUES ('$title', '$description')";
+  $query = "INSERT INTO task(first_name, description) VALUES ('$first_name', '$description')";
   $result = mysqli_query($conn, $query);
   if(!$result) {
     die("Query Failed.");
