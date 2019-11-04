@@ -1,7 +1,10 @@
 <?php include("db.php"); ?>
 
 <?php include('includes/header.php'); ?>
-
+<form class="form w-50" action="search.php" method="POST">
+  <input class="form-control mr-sm-2" name="id_search" type="search" placeholder="Search ID" aria-label="Search">
+  <input type="submit" name="search" class="btn btn-success btn-block" value="Search">
+</form>
 <main class="container p-4">
   <div class="row">
     <div class="col-md-4">

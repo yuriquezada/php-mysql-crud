@@ -1,6 +1,5 @@
 <?php
 include("db.php");
-// $id = '';
 $first_name = '';
 $last_name = '';
 $dni = '';
@@ -14,7 +13,6 @@ if  (isset($_GET['id'])) {
   $result = mysqli_query($conn, $query);
   if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_array($result);
-    // $id = $row['id'];
     $first_name = $row['first_name'];
     $last_name = $row['last_name'];
     $dni = $row['dni'];
@@ -26,7 +24,6 @@ if  (isset($_GET['id'])) {
 
 if (isset($_POST['update'])) {
   $id = $_GET['id'];
-  // $id= $_POST['id'];
   $first_name= $_POST['first_name'];
   $last_name= $_POST['last_name'];
   $dni= $_POST['dni'];
@@ -48,19 +45,16 @@ if (isset($_POST['update'])) {
     <div class="col-md-4 mx-auto">
       <div class="card card-body">
         <form action="edit.php?id=<?php echo $_GET['id']; ?>" method="POST">
-          <!-- <div class="form-group">
-            <input name="id" type="text" class="form-control" value=" ?>" placeholder="Update id">
-          </div> -->
           <div class="form-group">
             <input name="first_name" type="text" class="form-control" value="<?php echo $first_name; ?>"
-              placeholder="Update first_name">
+              placeholder="Update first name">
           </div>
           <div class="form-group">
             <input name="last_name" type="text" class="form-control" value="<?php echo $last_name; ?>"
-              placeholder="Update last_name">
+              placeholder="Update last name">
           </div>
           <div class="form-group">
-            <input name="dni" type="text" class="form-control" value="<?php echo $dni; ?>" placeholder="Update dni">
+            <input name="dni" type="text" class="form-control" value="<?php echo $dni; ?>" placeholder="Update DNI">
           </div>
           <div class="form-group">
             <input name="program" type="text" class="form-control" value="<?php echo $program; ?>"
