@@ -3,17 +3,51 @@
 <?php include('includes/header.php'); ?>
 
 <main class="container p-4">
-
-<form class="form w-50" action="search.php" method="POST">
-  <input class="form-control mr-sm-2" name="id_search" type="search" placeholder="Search ID" aria-label="Search">
-  <input type="submit" name="search" class="btn btn-success btn-block" value="Search">
-</form>
-
-<?php if (isset($_SESSION['elresultado'])) { ?>
-      <div class="mostrandooooooo">
-        <?= $_SESSION['elresultado']?>
+  <div class="row mb-3">
+    <div class="col-sm">
+      <form class="form w-50" action="search.php" method="POST">
+        <input class="form-control mr-sm-2" name="id_search" type="search" placeholder="Search ID" aria-label="Search">
+        <input type="submit" name="search" class="btn btn-success btn-block" value="Search">
+      </form>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-sm">
+      <?php if (isset($_SESSION['id'])) { ?>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">First name</th>
+              <th scope="col">Last name</th>
+              <th scope="col">DNI</th>
+              <th scope="col">Program</th>
+              <th scope="col">Semester</th>
+              <th scope="col">Fee</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><?= $_SESSION['id']?></th>
+              <td><?= $_SESSION['first_name']?></td>
+              <td><?= $_SESSION['last_name']?></td>
+              <td><?= $_SESSION['dni']?></td>
+              <td><?= $_SESSION['program']?></td>
+              <td><?= $_SESSION['semester']?></td>
+              <td><?= $_SESSION['fee']?></td>
+            </tr>
+          </tbody>
+        </table>
+      
+        <div>
+        
+        
       </div>
-<?php session_unset(); }  ?>
+      <?php session_unset(); }  ?>
+    </div>
+  </div>
+
+
   <div class="row">
     <div class="col-md-4">
       <!-- MESSAGES -->
@@ -27,8 +61,10 @@
       </div>
       <?php session_unset(); }  ?>
 
-      <!-- ADD student FORM -->
+      <!-- ADD STUDENT FORM -->
       <div class="card card-body">
+      <h3>Enter student data</h3>
+
         <form action="save.php" method="POST">
           <div class="form-group">
             <input type="text" name="first_name" class="form-control" placeholder="First name" autofocus>
@@ -53,6 +89,7 @@
       </div>
     </div>
     <div class="col-md-8">
+      <h3 class="text-center">Students list</h3>
       <table class="table table-bordered">
         <thead>
           <tr>
