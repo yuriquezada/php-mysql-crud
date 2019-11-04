@@ -20,12 +20,24 @@
       <div class="card card-body">
         <form action="save.php" method="POST">
           <div class="form-group">
-            <input type="text" name="first_name" class="form-control" placeholder="student first_name" autofocus>
+            <input type="text" name="first_name" class="form-control" placeholder="First name" autofocus>
           </div>
           <div class="form-group">
-            <textarea name="description" rows="2" class="form-control" placeholder="student Description"></textarea>
+            <input type="text" name="last_name" class="form-control" placeholder="Last name" autofocus>
           </div>
-          <input type="submit" name="save" class="btn btn-success btn-block" value="Save student">
+          <div class="form-group">
+            <input type="text" name="dni" class="form-control" placeholder="DNI" autofocus>
+          </div>
+          <div class="form-group">
+            <input type="text" name="program" class="form-control" placeholder="Program" autofocus>
+          </div>
+          <div class="form-group">
+            <input type="number" name="semester" class="form-control" placeholder="Semester" autofocus>
+          </div>
+          <div class="form-group">
+            <input type="number" name="fee" class="form-control" placeholder="Fee" autofocus>
+          </div>
+          <input type="submit" name="save" class="btn btn-success btn-block" value="Save">
         </form>
       </div>
     </div>
@@ -33,9 +45,13 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th>first_name</th>
-            <th>Description</th>
-            <th>Created At</th>
+            <th>ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>DNI</th>
+            <th>Program</th>
+            <th>Semester</th>
+            <th>Fee</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -47,14 +63,18 @@
 
           while($row = mysqli_fetch_assoc($result_students)) { ?>
           <tr>
+            <td><?php echo $row['id']; ?></td>
             <td><?php echo $row['first_name']; ?></td>
-            <td><?php echo $row['description']; ?></td>
-            <td><?php echo $row['created_at']; ?></td>
+            <td><?php echo $row['last_name']; ?></td>
+            <td><?php echo $row['dni']; ?></td>
+            <td><?php echo $row['program']; ?></td>
+            <td><?php echo $row['semester']; ?></td>
+            <td><?php echo $row['fee']; ?></td>
             <td>
               <a href="edit.php?id=<?php echo $row['id']?>" class="btn btn-secondary">
                 <i class="fas fa-marker"></i>
               </a>
-              <a href="delete_student.php?id=<?php echo $row['id']?>" class="btn btn-danger">
+              <a href="delete.php?id=<?php echo $row['id']?>" class="btn btn-danger">
                 <i class="far fa-trash-alt"></i>
               </a>
             </td>

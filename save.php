@@ -2,16 +2,21 @@
 
 include('db.php');
 
-if (isset($_POST['save_task'])) {
+if (isset($_POST['save'])) {
+  $id = $_POST['id'];
   $first_name = $_POST['first_name'];
-  $description = $_POST['description'];
-  $query = "INSERT INTO task(first_name, description) VALUES ('$first_name', '$description')";
+  $last_name = $_POST['last_name'];
+  $dni = $_POST['dni'];
+  $program = $_POST['program'];
+  $semester = $_POST['semester'];
+  $fee = $_POST['fee'];
+  $query = "INSERT INTO student(id, first_name, last_name, dni, program, semester, fee) VALUES ('$id', '$first_name', '$last_name', '$dni', '$program', '$semester', '$fee')";
   $result = mysqli_query($conn, $query);
   if(!$result) {
     die("Query Failed.");
   }
 
-  $_SESSION['message'] = 'Task Saved Successfully';
+  $_SESSION['message'] = 'Student Saved Successfully';
   $_SESSION['message_type'] = 'success';
   header('Location: index.php');
 
